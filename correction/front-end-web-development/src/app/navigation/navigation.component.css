@@ -2,6 +2,8 @@
   flex: 1 1 auto;
 }
 
-mat-toolbar span {
+mat-toolbar a {
   margin: 0 0.5em;
+  color: white !important;
+  text-decoration: none;
 }
