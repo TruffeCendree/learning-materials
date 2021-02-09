@@ -18,3 +18,9 @@ button {
   width: 100%;
   margin-top: 1em;
 }
+
+.error-box {
+  margin-top: 1em;
+  background-color: #f44336;
+  color: white;
+}
