@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Auth$LoginParams } from '@backend/routes/auth/post.login';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,8 @@ export class LoginComponent {
   async submit () {
     try {
       this.errors = [];
-      await this.httpClient.post('/auth/login', { email: this.email, password: this.password }).toPromise();
+      const body: Auth$LoginParams = { email: this.email, password: this.password };
+      await this.httpClient.post('/auth/login', body).toPromise();
       await this.router.navigateByUrl('/profile');
     } catch (err) {
       if (err instanceof HttpErrorResponse) this.errors = err.error?.messages;
