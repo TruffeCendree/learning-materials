@@ -3,4 +3,9 @@
   <span class="toolbar-spacer"></span>
   <a routerLink="/login" *ngIf="!me">Login</a>
   <a routerLink="/profile" *ngIf="me">Profile</a>
+
+  <button mat-mini-fab color="warn" (click)="logout()" matTooltip="Logout" *ngIf="me">
+    <fa-icon [icon]="faSignOutAlt"></fa-icon>
+  </button>
+  
 </mat-toolbar>
