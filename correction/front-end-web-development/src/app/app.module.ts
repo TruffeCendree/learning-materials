@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { HomeComponent } from './routes/home/home.component';
 import { LoginComponent } from './routes/login/login.component';
 import { ProfileComponent } from './routes/profile/profile.component';
+import { PostalAddressInputComponent } from './shared/postal-address-input/postal-address-input.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { ProfileComponent } from './routes/profile/profile.component';
     NavigationComponent,
     HomeComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    PostalAddressInputComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { ProfileComponent } from './routes/profile/profile.component';
     MatButtonModule,
     HttpClientModule,
     FontAwesomeModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,14 @@
 <app-navigation></app-navigation>
 
-<h1>Welcome to this minimal angular project !</h1>
+<div class="city-input-container">
+  <div class="city-input-inner">
+    <h1>Book your cleaning service online</h1>
+    <div class="city-flex-input-form">
+      <mat-card>
+        <app-postal-address-input (ngModelChange)="postalAddress = $event"></app-postal-address-input>
+      </mat-card>
+
+      <button mat-flat-button color="primary">Book now !</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<input
+  type="text"
+  placeholder="Enter your city"
+  [matAutocomplete]="auto"
+  [ngModel]="ngModel"
+  (ngModelChange)="onInputChanged($event)" />
+
+<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayResult">
+  <mat-option *ngFor="let geocodingResult of geocodingResults" [value]="geocodingResult">
+    {{ geocodingResult.postalAddress }}
+  </mat-option>
+</mat-autocomplete>

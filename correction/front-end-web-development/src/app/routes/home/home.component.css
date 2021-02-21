@@ -1,0 +1,30 @@
+.city-input-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('/assets/home-cleaning.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 8em 2em 6em 2em;
+}
+
+.city-input-inner {
+  max-width: 80em;
+  margin: auto;
+}
+
+.city-input-container h1 {
+  color: white;
+}
+
+.city-flex-input-form {
+  display: flex;
+}
+
+.city-input-container mat-card {
+  max-width: 35em;
+  flex-grow: 1;
+  margin-right: 1em;
+}
+
+.city-input-container button {
+  padding-left: 3em;
+  padding-right: 3em;
+}
