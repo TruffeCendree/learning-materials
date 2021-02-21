@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import User from '@backend/models/user';
-import { MeService } from '../me.service';
+import { MeService } from '../../services/me.service';
 
 @Component({
   selector: 'app-navigation',

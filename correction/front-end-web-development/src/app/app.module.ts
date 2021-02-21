@@ -13,10 +13,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { ProfileComponent } from './profile/profile.component';
+import { NavigationComponent } from './shared/navigation/navigation.component';
+import { HomeComponent } from './routes/home/home.component';
+import { LoginComponent } from './routes/login/login.component';
+import { ProfileComponent } from './routes/profile/profile.component';
 
 @NgModule({
   declarations: [
