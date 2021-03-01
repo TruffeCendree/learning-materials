@@ -4,6 +4,7 @@
   "description": "Mock backend for a cleaning online booking service",
   "main": "index.js",
   "scripts": {
+    "start": "node --async-stack-traces index.js",
     "test": "NODE_ENV=test nyc --reporter=html mocha --recursive build/server/specs --timeout=0 --exit",
     "test:one": "NODE_ENV=test mocha $* --timeout=0 --exit",
     "db:prepare:test": "NODE_ENV=test node -e \"require('./build/server/mysql-store').default.rebuildDatabase('test').then(() => process.exit()).catch(err => { console.error(err); process.exit(1) })\"",
@@ -39,6 +40,6 @@
     "lodash.get": "^4.4.2",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
-    "node-asuran-db": "github:TruffeCendree/node-asuran-db#0.0.4"
+    "node-asuran-db": "github:TruffeCendree/node-asuran-db#0.0.5"
   }
 }
