@@ -28,3 +28,15 @@
   padding-left: 3em;
   padding-right: 3em;
 }
+
+.city-input-container .city-notice {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+  margin-left: 0.5em;
+}
+
+.city-input-container .city-notice fa-icon {
+  margin-right: 0.5em;
+}

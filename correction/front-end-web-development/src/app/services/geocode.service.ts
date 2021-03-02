@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 export interface NominatimResult {
   display_name: string
   importance: number  
-  lat: number
-  lon: number
+  lat: string
+  lon: string
 }
 
 @Injectable({
@@ -19,6 +19,6 @@ export class GeocodeService {
     if (postalAddress.length < 3) return [];
 
     // find OpenStreetMap nominatim API documention at https://nominatim.org/release-docs/latest/api/Search/
-    return this.httpClient.get(`https://nominatim.openstreetmap.org/search?format=json&featuretype=administrative&countrycodes=${country}&q=${postalAddress}`).toPromise() as any;
+    return this.httpClient.get(`https://nominatim.openstreetmap.org/search?format=json&featuretype=city&countrycodes=${country}&q=${postalAddress}`).toPromise() as any;
   }
 }

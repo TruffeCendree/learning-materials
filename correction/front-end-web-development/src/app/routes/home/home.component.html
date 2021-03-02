@@ -5,10 +5,18 @@
     <h1>Book your cleaning service online</h1>
     <div class="city-flex-input-form">
       <mat-card>
-        <app-postal-address-input (ngModelChange)="postalAddress = $event"></app-postal-address-input>
+        <app-postal-address-input (ngModelChange)="setPostalAddress($event)"></app-postal-address-input>
       </mat-card>
 
-      <button mat-flat-button color="primary">Book now !</button>
+      <button mat-flat-button color="primary" *ngIf="coverage === 'covered' || coverage === 'unknown'">Book now !</button>
+
+      <button mat-flat-button color="warn" *ngIf="coverage === 'uncovered'">
+        Sorry, this city is not covered
+      </button>
+
+      <div class="city-notice" *ngIf="coverage === 'checking'">
+        <fa-icon [icon]="faCircleNotch" [spin]="true"></fa-icon> Checking coverage...
+      </div>
     </div>
   </div>
 </div>

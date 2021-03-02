@@ -37,8 +37,7 @@ export class PostalAddressInputComponent {
   @Debounce(1000)
   async searchAddress (rawPostalAddress: string) {
     const results = await this.geocodeService.geocodeCity(rawPostalAddress);
-    this.geocodingResults = results.map(_ => ({ postalAddress: _.display_name, latitude: _.lat, longitude: _.lon }));
-    if (this.geocodingResults.length) this.ngModelChange.emit(this.geocodingResults[0]);
+    this.geocodingResults = results.map(_ => ({ postalAddress: _.display_name, latitude: parseFloat(_.lat), longitude: parseFloat(_.lon) }));
   }
 
   displayResult (value: PostalAddress) {
