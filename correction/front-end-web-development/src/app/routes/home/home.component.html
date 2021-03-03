@@ -8,7 +8,7 @@
         <app-postal-address-input (ngModelChange)="setPostalAddress($event)"></app-postal-address-input>
       </mat-card>
 
-      <button mat-flat-button color="primary" *ngIf="coverage === 'covered' || coverage === 'unknown'">Book now !</button>
+      <button mat-flat-button color="primary" *ngIf="coverage === 'covered' || coverage === 'unknown'" (click)="startBooking()">Book now !</button>
 
       <button mat-flat-button color="warn" *ngIf="coverage === 'uncovered'">
         Sorry, this city is not covered

@@ -39,5 +39,5 @@ services:
     ports:
       - 127.0.0.1:8080:8080
     volumes:
-      - ../../frontend:/app/build/frontend
+      - ../correction/front-end-web-development:/app/build/frontend
       - ./dist-typings:/app/dist-typings

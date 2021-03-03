@@ -1,0 +1,30 @@
+<app-navigation></app-navigation>
+
+<div class="row">
+  <h2>What would be the date of the intervention?</h2>
+
+  <mat-card class="calendar-container">
+    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+  </mat-card>
+</div>
+
+<div class="row row-darker">
+  <h2>For what duration of cleaning?</h2>
+
+  <mat-button-toggle-group [ngModel]="duration" (ngModelChange)="setDuration($event)" aria-label="Duration" color="primary">
+    <mat-button-toggle *ngFor="let duration of durations" [value]="duration">{{ duration }}h</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<div class="row">
+  <h2>From which hour ? {{ formatTime(startHour) }}</h2>
+
+  {{ formatTime(getMinStartHour()) }}
+  <mat-slider [min]="getMinStartHour()" [max]="getMaxStartHour()" step="0.5" [(ngModel)]="startHour" color="primary"></mat-slider>
+  {{ formatTime(getMaxStartHour()) }}
+</div>
+
+<div class="row row-darker">
+  <p *ngIf="!selectedDate">Please select a date.</p>
+  <button [disabled]="!selectedDate" color="primary">Find employees</button>
+</div>

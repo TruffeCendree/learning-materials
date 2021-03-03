@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import { BookingsService } from 'src/app/services/bookings.service';
 import { PostalAddress } from '../../shared/postal-address-input/postal-address-input.component';
@@ -13,7 +14,10 @@ export class HomeComponent {
   coverage: 'unknown' | 'checking' | 'covered' | 'uncovered' = 'unknown';
   faCircleNotch = faCircleNotch;
 
-  constructor (private bookingsService: BookingsService) {}
+  constructor (
+    private bookingsService: BookingsService,
+    private router: Router
+  ) {}
 
   async setPostalAddress (newValue: PostalAddress | null) {
     this.postalAddress = newValue;
@@ -26,5 +30,10 @@ export class HomeComponent {
     } else {
       this.coverage = 'unknown';
     }
+  }
+
+  async startBooking () {
+    if (!this.postalAddress) return alert('Please first select a city.');
+    await this.router.navigateByUrl(`bookings/new/step1/${this.postalAddress.latitude}/${this.postalAddress.longitude}`);
   }
 }

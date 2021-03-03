@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Auth$LoginParams } from '@backend/routes/auth/post.login';
+import { Auth$LoginParams } from '@backend/routes/auth/post.login.interfaces';
 import User from '@backend/models/user';
 
 @Injectable({

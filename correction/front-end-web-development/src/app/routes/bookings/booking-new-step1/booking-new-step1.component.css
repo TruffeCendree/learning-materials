@@ -1,0 +1,27 @@
+.calendar-container {
+  margin: auto;
+  max-width: 30em;
+}
+
+.row {
+  background-color: #fbfbfb;
+  padding: 2em 0 3em 0;
+  text-align: center;
+}
+
+.row.row-darker {
+  background-color: #ededed;
+}
+
+mat-button-toggle-group {
+  font-size: 2em;
+}
+
+mat-button-toggle {
+  min-width: 3em;
+}
+
+mat-slider {
+  max-width: 30em;
+  width: 100%;
+}

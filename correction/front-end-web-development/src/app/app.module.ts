@@ -11,6 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +23,7 @@ import { HomeComponent } from './routes/home/home.component';
 import { LoginComponent } from './routes/login/login.component';
 import { ProfileComponent } from './routes/profile/profile.component';
 import { PostalAddressInputComponent } from './shared/postal-address-input/postal-address-input.component';
+import { BookingNewStep1Component } from './routes/bookings/booking-new-step1/booking-new-step1.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { PostalAddressInputComponent } from './shared/postal-address-input/posta
     HomeComponent,
     LoginComponent,
     ProfileComponent,
-    PostalAddressInputComponent
+    PostalAddressInputComponent,
+    BookingNewStep1Component
   ],
   imports: [
     BrowserModule,
@@ -42,7 +48,11 @@ import { PostalAddressInputComponent } from './shared/postal-address-input/posta
     HttpClientModule,
     FontAwesomeModule,
     MatTooltipModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatButtonToggleModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
