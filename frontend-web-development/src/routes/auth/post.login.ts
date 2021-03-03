@@ -4,7 +4,7 @@ import User from '../../models/user'
 import * as util from 'util'
 import * as bcrypt from 'bcrypt'
 import PrintableError from '../../printable-error'
-import { Auth$LoginParams } from './post.login.interface'
+import { Auth$LoginParams } from './post.login.interfaces'
 
 route(login, 'POST', '/auth/login', 'Authentification', 'Login')
 params(login, { key: 'email', type: 'string', required: true, desc: 'Email of a valid user account' })
