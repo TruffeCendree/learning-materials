@@ -1,4 +1,4 @@
-import { Users$RegisterParams } from '../../../../routes/api/users/post.register'
+import { Users$RegisterParams } from '../../../../routes/api/users/post.register.interface'
 import { chai, getApp, expect } from '../../../specs-utils'
 import { userFactory } from '../../../factories/user.factory'
 import EmployeeInformation from '../../../../models/employee-information'

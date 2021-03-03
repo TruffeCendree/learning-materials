@@ -3,21 +3,7 @@ import AvailabilitiesService from '../../../services/availabilities.service'
 import { params, route, sanetizeBody } from '../../../docs/routes'
 import User from '../../../models/user'
 import GeocodingService from '../../../services/geocoding.service'
-import EmployeeInformation from '../../../models/employee-information'
-
-export interface Bookings$ProposalsParams {
-  latitude: number
-  longitude: number
-  startTime: number
-  durationInHours: number
-}
-
-export interface Bookings$ProposalsResponse {
-  proposals: {
-    employee: User & { employeeInformation: EmployeeInformation },
-    availability: { start: number, end: number }[]
-  }[]
-}
+import { Bookings$ProposalsParams, Bookings$ProposalsResponse } from './post.proposals.interfaces'
 
 route(computeProposals, 'POST', '/api/bookings/proposals', 'Bookings', 'Proposals', 'Computes employee availabilities in zone which matches the booking.')
 params(computeProposals, { key: 'latitude', type: 'number', required: true, desc: 'Latitude of the delivery location. Filter employees in same zone (up to 10 km).' })
