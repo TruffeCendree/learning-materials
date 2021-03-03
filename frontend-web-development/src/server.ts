@@ -5,6 +5,7 @@ import * as session from 'express-session'
 import * as SessionStorage from 'express-mysql-session'
 import * as morgan from 'morgan'
 import * as fs from 'fs'
+import * as cors from 'cors'
 import MySQLStore from './mysql-store'
 import config from './config'
 import authRoutes from './routes/auth/routes'
@@ -31,6 +32,7 @@ export default () => {
     ))
   }
 
+  router.use(cors())
   router.use(bodyParser.json({ limit: '5mb' }))
   router.use(bodyParser.urlencoded({ extended: true }))
   router.use(cookieParser)
