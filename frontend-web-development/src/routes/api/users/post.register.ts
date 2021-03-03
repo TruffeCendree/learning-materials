@@ -5,24 +5,9 @@ import User from '../../../models/user'
 import Commit from '../../../models/commit'
 import * as bcrypt from 'bcrypt'
 import EmployeeInformation from '../../../models/employee-information'
+import { Users$RegisterParams } from './post.register.interface'
 
 const allowedRoles = ['customer', 'employee']
-
-export type Users$RegisterParams = {
-  email: string
-  password: string
-  firstname: string
-  lastname: string
-} & (
-  { role: 'customer' } |
-  {
-    role: 'employee', 
-    employeeInformation: {
-      latitude: number
-      longitude: number
-    }
-  }
-)
 
 route(register, 'POST', '/api/users/register', 'Users', 'Register', 'Designed for self registration of customers and employees.')
 params(register, { key: 'email', type: 'string', required: true, desc: 'Valid email address' })

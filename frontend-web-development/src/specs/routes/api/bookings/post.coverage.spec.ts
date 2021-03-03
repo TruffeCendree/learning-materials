@@ -1,6 +1,6 @@
 import { chai, getApp, expect } from '../../../specs-utils'
 import { userFactory } from '../../../factories/user.factory'
-import { Bookings$CoverageParams } from '../../../../routes/api/bookings/post.coverage'
+import { Bookings$CoverageParams } from '../../../../routes/api/bookings/post.coverage.interfaces'
 
 export function postApiBookingsCoverage () {
   describe('#POST /api/bookings/coverage', () => {

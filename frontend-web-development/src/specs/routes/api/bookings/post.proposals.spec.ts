@@ -1,5 +1,5 @@
 import { chai, getApp, expect } from '../../../specs-utils'
-import { Bookings$ProposalsParams } from '../../../../routes/api/bookings/post.proposals'
+import { Bookings$ProposalsParams } from '../../../../routes/api/bookings/post.proposals.interfaces'
 import { userFactory } from '../../../factories/user.factory'
 import { deliveryFactory } from '../../../factories/delivery.factory'
 import EmployeeInformation from '../../../../models/employee-information'
