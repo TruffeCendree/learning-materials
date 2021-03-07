@@ -16,6 +16,10 @@ class BookingFactory extends FixtureFactory<Booking, BookingRelation> implements
     const startTime = new Date()
     startTime.setMinutes(0)
     startTime.setSeconds(0)
+
+    // never starts on sunday
+    if (startTime.getDay() === 0) startTime.setDate(startTime.getDate() + 1)
+
     return startTime.getTime()
   }
   
