@@ -4,7 +4,7 @@
   <h2>What would be the date of the intervention?</h2>
 
   <mat-card class="calendar-container">
-    <mat-calendar [(selected)]="selectedDate"></mat-calendar>
+    <mat-calendar [selected]="selectedDate" (selectedChange)="selectedDate = $event; status = 'unknown'"></mat-calendar>
   </mat-card>
 </div>
 
@@ -20,11 +20,12 @@
   <h2>From which hour ? {{ formatTime(startHour) }}</h2>
 
   {{ formatTime(getMinStartHour()) }}
-  <mat-slider [min]="getMinStartHour()" [max]="getMaxStartHour()" step="0.5" [(ngModel)]="startHour" color="primary"></mat-slider>
+  <mat-slider [min]="getMinStartHour()" [max]="getMaxStartHour()" step="0.5" [ngModel]="startHour" (ngModelChange)="startHour = $event; status = 'unknown'" color="primary"></mat-slider>
   {{ formatTime(getMaxStartHour()) }}
 </div>
 
 <div class="row row-darker">
-  <p *ngIf="!selectedDate">Please select a date.</p>
-  <button [disabled]="!selectedDate" color="primary">Find employees</button>
+  <div *ngIf="!selectedDate" class="error">Please select a date.</div>
+  <div *ngIf="status === 'no_proposal'" class="error">No employee is available at this moment.</div>
+  <button mat-flat-button *ngIf="selectedDate && status !== 'no_proposal'" color="primary" (click)="submit()">Find employees</button>
 </div>

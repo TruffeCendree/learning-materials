@@ -24,6 +24,7 @@ import { LoginComponent } from './routes/login/login.component';
 import { ProfileComponent } from './routes/profile/profile.component';
 import { PostalAddressInputComponent } from './shared/postal-address-input/postal-address-input.component';
 import { BookingNewStep1Component } from './routes/bookings/booking-new-step1/booking-new-step1.component';
+import { BookingNewStep2Component } from './routes/bookings/booking-new-step2/booking-new-step2.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BookingNewStep1Component } from './routes/bookings/booking-new-step1/bo
     LoginComponent,
     ProfileComponent,
     PostalAddressInputComponent,
-    BookingNewStep1Component
+    BookingNewStep1Component,
+    BookingNewStep2Component
   ],
   imports: [
     BrowserModule,

@@ -25,3 +25,12 @@ mat-slider {
   max-width: 30em;
   width: 100%;
 }
+
+.error {
+  display: inline-block;
+  background-color: #f44336;
+  border-radius: 0.5em;
+  padding: 1em;
+  color: white;
+  margin-top: 1em;
+}
