@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Bookings$CoverageParams, Bookings$CoverageResponse } from '@backend/routes/api/bookings/post.coverage.interfaces';
-import { Bookings$ProposalsParams, Bookings$ProposalsResponse } from 'src/dist-typings/routes/api/bookings/post.proposals.interfaces';
+import { Bookings$ProposalsParams, Bookings$ProposalsResponse } from '@backend/routes/api/bookings/post.proposals.interfaces';
 
 @Injectable({
   providedIn: 'root'
