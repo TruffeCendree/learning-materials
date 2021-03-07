@@ -4,6 +4,7 @@ import { userFactory } from '../../../factories/user.factory'
 import { deliveryFactory } from '../../../factories/delivery.factory'
 import EmployeeInformation from '../../../../models/employee-information'
 import Commit from '../../../../models/commit'
+import { setDay } from 'date-fns'
 
 export function postApiBookingsProposals () {
   describe('#POST /api/bookings/proposals', () => {
@@ -16,6 +17,9 @@ export function postApiBookingsProposals () {
       const startTime = new Date()
       startTime.setMinutes(0)
       startTime.setSeconds(0)
+
+      // never starts on sunday
+      if (startTime.getDay() === 0) startTime.setDate(startTime.getDate() + 1)
 
       const body: Bookings$ProposalsParams = {
         latitude: 48.79395,
@@ -59,6 +63,30 @@ export function postApiBookingsProposals () {
       expect(res.body.proposals[0]).to.have.property('availability')
       expect(res.body.proposals[0].availability.length).to.eq(1)
       expect(res.body.proposals[0].availability[0].start).to.eq(delivery.end)
+    })
+
+    it('returns empty array for sundays', async () => {
+      await userFactory.create({ role: 'employee' })
+
+      const startTime = setDay(new Date(), 0)
+      startTime.setMinutes(0)
+      startTime.setSeconds(0)
+
+      const body: Bookings$ProposalsParams = {
+        latitude: 48.79395,
+        longitude: 2.36231,
+        durationInHours: 1.5,
+        startTime: startTime.getTime()
+      }
+
+      const res = await chai.request(getApp())
+        .post('/api/bookings/proposals')
+        .send(body)
+      
+      expect(res).to.have.property('status', 200)
+      expect(res.body).to.be.a('object')
+      expect(res.body).to.have.property('proposals')
+      expect(res.body.proposals).to.be.empty
     })
   })
 }
