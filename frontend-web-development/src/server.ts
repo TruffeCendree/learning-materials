@@ -32,7 +32,7 @@ export default () => {
   }
 
   router.use((req, res, next) => {
-    res.set('Access-Control-Allow-Origin', '*')
+    res.set('Access-Control-Allow-Origin', req.headers.origin)
     res.set('Access-Control-Allow-Credentials', '*')
     res.set('Access-Control-Allow-Methods', '*')
     res.set('Access-Control-Allow-Headers: Content-Type', '*')

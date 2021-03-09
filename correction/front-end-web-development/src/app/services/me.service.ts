@@ -26,7 +26,7 @@ export class MeService {
     if (typeof this.me !== 'undefined') return this.me;
 
     try {
-      this.me = await this.httpClient.get('/api/users/me', { withCredentials: true }).toPromise() as User;
+      this.me = await this.httpClient.get('https://backend.thomas-veillard.fr/api/users/me', { withCredentials: true }).toPromise() as User;
     } catch (err) {
       if (err instanceof HttpErrorResponse && err.status === 403) this.me = null;
       else throw err;
@@ -41,7 +41,7 @@ export class MeService {
    * Returns Promise<void> if success.
    */
   async login (credentials: Auth$LoginParams) {
-    await this.httpClient.post('/auth/login', credentials).toPromise();
+    await this.httpClient.post('https://backend.thomas-veillard.fr/auth/login', credentials, { withCredentials: true }).toPromise();
     this.me = undefined; // reset cache
   }
 
@@ -50,7 +50,7 @@ export class MeService {
    * Returns Promise<void> if success.
    */
   async logout () {
-    await this.httpClient.delete('/auth/logout').toPromise();
+    await this.httpClient.delete('https://backend.thomas-veillard.fr/auth/logout', { withCredentials: true }).toPromise();
     this.me = undefined; // reset cache
   }
 }
