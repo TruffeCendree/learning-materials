@@ -35,7 +35,7 @@ export default () => {
     res.set('Access-Control-Allow-Origin', req.headers.origin)
     res.set('Access-Control-Allow-Credentials', '*')
     res.set('Access-Control-Allow-Methods', '*')
-    res.set('Access-Control-Allow-Headers: Content-Type', '*')
+    res.set('Access-Control-Allow-Headers', 'Content-Type: *')
     next();
   })
 
