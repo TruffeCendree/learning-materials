@@ -13,10 +13,10 @@ export class BookingsService {
    * Check if zone is covered by at least one employee.
    */
   coverage (body: Bookings$CoverageParams) {
-    return this.httpClient.post('/api/bookings/coverage', body).toPromise() as any as Bookings$CoverageResponse;
+    return this.httpClient.post('/api/bookings/coverage', body, { withCredentials: true }).toPromise() as any as Bookings$CoverageResponse;
   }
 
   proposals (body: Bookings$ProposalsParams) {
-    return this.httpClient.post('/api/bookings/proposals', body).toPromise() as any as Bookings$ProposalsResponse;
+    return this.httpClient.post('/api/bookings/proposals', body, { withCredentials: true }).toPromise() as any as Bookings$ProposalsResponse;
   }
 }

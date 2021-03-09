@@ -26,7 +26,7 @@ export class MeService {
     if (typeof this.me !== 'undefined') return this.me;
 
     try {
-      this.me = await this.httpClient.get('/api/users/me').toPromise() as User;
+      this.me = await this.httpClient.get('/api/users/me', { withCredentials: true }).toPromise() as User;
     } catch (err) {
       if (err instanceof HttpErrorResponse && err.status === 403) this.me = null;
       else throw err;

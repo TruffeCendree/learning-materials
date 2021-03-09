@@ -5,7 +5,6 @@ import * as session from 'express-session'
 import * as SessionStorage from 'express-mysql-session'
 import * as morgan from 'morgan'
 import * as fs from 'fs'
-import * as cors from 'cors'
 import MySQLStore from './mysql-store'
 import config from './config'
 import authRoutes from './routes/auth/routes'
@@ -32,7 +31,14 @@ export default () => {
     ))
   }
 
-  router.use(cors())
+  router.use((req, res, next) => {
+    res.set('Access-Control-Allow-Origin', '*')
+    res.set('Access-Control-Allow-Credentials', '*')
+    res.set('Access-Control-Allow-Methods', '*')
+    res.set('Access-Control-Allow-Headers: Content-Type', '*')
+    next();
+  })
+
   router.use(bodyParser.json({ limit: '5mb' }))
   router.use(bodyParser.urlencoded({ extended: true }))
   router.use(cookieParser)
