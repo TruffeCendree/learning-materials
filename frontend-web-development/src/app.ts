@@ -8,6 +8,7 @@ async function run () {
   await MySQLStore.init()
 
   const app = express()
+  app.set('trust proxy', 1)
   app.use(server())
   app.listen(config.port, () => Utils.debug(module, `App listening on port ${config.port}...`))
 }

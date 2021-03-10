@@ -16,7 +16,6 @@ import Utils from './utils'
 export default () => {
   const assetsPath = autoDetectAssetsPath()
   const cookieParser = session({
-    
     secret: config.cookies.encryptionKey,
     resave: false,
     saveUninitialized: false,
