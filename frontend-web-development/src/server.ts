@@ -16,10 +16,11 @@ import Utils from './utils'
 export default () => {
   const assetsPath = autoDetectAssetsPath()
   const cookieParser = session({
+    
     secret: config.cookies.encryptionKey,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: config.cookies.secure, maxAge: 90 * 24 * 3600 * 1000 },
+    cookie: { secure: config.cookies.secure, maxAge: 90 * 24 * 3600 * 1000, sameSite: 'none' },
     store: new SessionStorage({ expiration: config.cookies.maxAgeInDays * 24 * 3600 * 1000 }, MySQLStore.connection)
   })
 
